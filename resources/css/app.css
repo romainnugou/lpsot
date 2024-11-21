@@ -42,6 +42,10 @@ a:hover {
   color: 	var(--blue);
 }
 
+select {
+  color: var(--text-color);
+}
+
 .page-container {
   width: 100%;
   max-width: 900px;
@@ -87,9 +91,18 @@ header nav a:last-child {
   padding: var(--default-padding) 0;
   text-align: center;
 }
+.content h2 {
+  padding: var(--default-padding) 0;
+}
 
 .content section {
   padding: var(--default-padding) 0;
+}
+
+.content section .datatable-wrapper {
+  padding: var(--default-padding);
+  border: 1px solid var(--text-color);
+  border-radius: 1rem;
 }
 
 /* Footer */
