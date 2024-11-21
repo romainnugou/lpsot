@@ -1,3 +1,104 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Reset CSS */
+
+*, *::before, *::after {box-sizing: border-box;}
+* {margin: 0;}
+body {line-height: 1.5; -webkit-font-smoothing: antialiased;}
+img, picture, video, canvas, svg {display: block; max-width: 100%;}
+input, button, textarea, select {font: inherit;}
+p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}
+p {text-wrap: pretty;}
+h1, h2, h3, h4, h5, h6 {text-wrap: balance;}
+#root, #__next {isolation: isolate;}
+
+/* Variables */
+
+:root {
+  --pink: #FFB2D3;
+  --blue: #b2d3ff;
+
+  --background-color: #101010;
+  --text-color: white;
+
+  --default-padding: 1rem;
+  --small-padding: 0.5rem;
+}
+
+/* Global */
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: var(--background-color);
+  font-family: sans-serif;
+  color: var(--text-color);
+}
+
+a {
+  color: var(--pink);
+  text-decoration: none;
+  transition: 0.3s;
+}
+a:hover {
+  color: 	var(--blue);
+}
+
+.page-container {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Header */
+
+header {
+  padding: var(--default-padding);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+header a.logo {
+  padding: 0.1rem 0.25rem;
+  font-weight: bold;
+  border: 3px solid var(--text-color);
+  border-radius: 0.5rem;
+  color: var(--text-color);
+  text-decoration: none;
+}
+header a.logo:hover {
+  color: var(--pink);
+  border-color: var(--pink);
+}
+
+header nav a {
+  margin: 0 var(--small-padding);
+  font-weight: bold;
+}
+header nav a:last-child {
+  margin-right: 0;
+}
+
+/* Content */
+
+.content {
+  padding: var(--default-padding);
+}
+
+.content h1 {
+  padding: var(--default-padding) 0;
+  text-align: center;
+}
+
+.content section {
+  padding: var(--default-padding) 0;
+}
+
+/* Footer */
+
+footer {
+  padding: var(--default-padding);
+}
+footer p {
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0.75;
+}
