@@ -15,6 +15,51 @@ class OrderFeatureTest extends TestCase
     use RefreshDatabase, WithFaker;
 
     /**
+     * Test can see orders page
+     */
+    public function test_can_see_orders_page()
+    {
+        $response = $this->get(route('orders.index'));
+
+        $response->assertStatus(200);
+        $response->assertSee('🗂️ Orders');
+    }
+
+    /**
+     * Test can see order details page
+     */
+    public function test_can_see_order_details_page()
+    {
+        $order = Order::factory()->create();
+
+        $response = $this->get(route('orders.show', $order->id));
+
+        $response->assertStatus(200);
+        $response->assertSee('ℹ️ Order details');
+    }
+
+    /**
+     * Test cannot see order details page for non existent order
+     */
+    public function test_cannot_see_order_details_page_for_non_existent_order()
+    {
+        $response = $this->get(route('orders.show', -1));
+
+        $response->assertStatus(404);
+    }
+
+    /**
+     * Test can see create order page
+     */
+    public function test_can_see_create_order_page()
+    {
+        $response = $this->get(route('orders.create'));
+
+        $response->assertStatus(200);
+        $response->assertSee('✨ New order');
+    }
+
+    /**
      * Test can create order with valid data one order item
      */
     public function test_can_create_order_with_valid_data_one_order_item()

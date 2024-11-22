@@ -13,6 +13,17 @@ class ProductFeatureTest extends TestCase
     use RefreshDatabase, WithFaker;
 
     /**
+     * Test can see products page
+     */
+    public function test_can_see_products_page()
+    {
+        $response = $this->get(route('products.index'));
+
+        $response->assertStatus(200);
+        $response->assertSee('📖 Products and types');
+    }
+
+    /**
      * Test can fetch products for datatable
      */
     public function test_can_fetch_products_for_datatable()
