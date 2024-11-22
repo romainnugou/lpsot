@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<h1>Products and types</h1>
+<h1>📖 Products and types</h1>
 
 <section>
   <h2>Products</h2>
@@ -42,7 +42,9 @@
     $('#products-table').DataTable({
       processing: true,
       serverSide: true,
+      order: [0,'asc'],
       ajax: '{{ route("products.data") }}',
+      dom: 'rtip',
       columns: [{
           data: 'name',
           name: 'name'
@@ -58,7 +60,9 @@
     $('#product-types-table').DataTable({
       processing: true,
       serverSide: true,
-      ajax: '{{ route("product.types.data") }}',
+      order: [0,'asc'],
+      ajax: '{{ route("products.types.data") }}',
+      dom: 'rtip',
       columns: [{
           data: 'name',
           name: 'name'

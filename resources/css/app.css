@@ -13,14 +13,17 @@ h1, h2, h3, h4, h5, h6 {text-wrap: balance;}
 /* Variables */
 
 :root {
-  --pink: #FFB2D3;
-  --blue: #b2d3ff;
+  --primary: #FFB2D3;
+  --transparent-primary: rgba(255,178,211, 0.15);
 
   --background-color: #101010;
   --text-color: white;
 
+  --section-border-color: rgba(255,255,255,0.33);
+
   --default-padding: 1rem;
   --small-padding: 0.5rem;
+  --big-padding: 2rem;
 }
 
 /* Global */
@@ -34,16 +37,51 @@ body {
 }
 
 a {
-  color: var(--pink);
+  color: var(--primary);
   text-decoration: none;
-  transition: 0.3s;
 }
 a:hover {
-  color: 	var(--blue);
+  color: 	var(--text-color);
 }
 
+a.a-button,
+button {
+  display: inline-block;
+  padding: var(--small-padding) var(--default-padding);
+  border: none;
+  background-color: var(--transparent-primary);
+  border-radius: 0.75rem;
+  /* box-shadow: 10px 10px 0 0 var(--transparent-primary); */
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+a.a-button:hover,
+button:hover {
+  outline: 1px solid var(--primary)
+}
+a.a-button.a-small-button,
+button.small-button {
+  padding: 2px var(--small-padding);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+input,
 select {
+  padding: var(--small-padding);
+  background-color: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 0.5rem;
   color: var(--text-color);
+}
+input:focus,
+select:focus {
+  outline: none;
+}
+
+.center {
+  text-align: center;
 }
 
 .page-container {
@@ -69,13 +107,17 @@ header a.logo {
   text-decoration: none;
 }
 header a.logo:hover {
-  color: var(--pink);
-  border-color: var(--pink);
+  color: var(--primary);
+  border-color: var(--primary);
 }
 
 header nav a {
   margin: 0 var(--small-padding);
+  color: var(--text-color);
   font-weight: bold;
+}
+header nav a:hover {
+  color: var(--primary);
 }
 header nav a:last-child {
   margin-right: 0;
@@ -95,14 +137,70 @@ header nav a:last-child {
   padding: var(--default-padding) 0;
 }
 
+.content p {
+  margin: var(--default-padding) 0;
+}
+
+.content p.warning {
+  padding: var(--default-padding);
+  background-color: rgba(255,165,0,0.1);
+  border-radius: 1rem;
+}
+
 .content section {
   padding: var(--default-padding) 0;
 }
 
 .content section .datatable-wrapper {
-  padding: var(--default-padding);
-  border: 1px solid var(--text-color);
+  padding: var(--big-padding);
+  border: 1px solid var(--section-border-color);
   border-radius: 1rem;
+}
+
+.form-container {
+  margin-bottom: var(--default-padding);
+}
+.form-container.bordered-form-container {
+  padding: var(--big-padding);
+  border: 1px solid var(--section-border-color);
+  border-radius: 1rem;
+}
+.form-container h3 {
+  margin-bottom: var(--default-padding);
+}
+.form-container .form-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: var(--small-padding);
+}
+.form-container .form-group label,
+.form-container .form-group input {
+  width: 50%;
+}
+
+table#order-items {
+  width: 100%;
+  margin-bottom: var(--default-padding);
+}
+table#order-items th {
+  text-align: left;
+}
+table#order-items td.product {
+  width: 60%;
+}
+table#order-items td.quantity {
+  width: 20%;
+}
+table#order-items td.actions {
+  width: 20%;
+}
+table#order-items td input,
+table#order-items td select {
+  width: 100%;
+}
+.dataTables_info {
+  opacity: 0.5;
 }
 
 /* Footer */
