@@ -24,6 +24,7 @@
       <thead>
         <tr>
           <th>Product name</th>
+          <th>Product type name</th>
           <th>Quantity</th>
         </tr>
       </thead>
@@ -47,6 +48,9 @@
       columns: [{
           data: 'product_name',
           name: 'product_name'
+        },{
+          data: 'product_type_name',
+          name: 'product_type_name'
         },
         {
           data: 'quantity',

@@ -276,7 +276,10 @@ class OrderFeatureTest extends TestCase
      */
     public function test_can_fetch_orders_for_datatable()
     {
-        Order::factory(10)->create();
+        $orders = Order::factory(10)->create();
+        foreach ($orders as $order) {
+            OrderItem::factory()->create(['order_id' => $order->id]);
+        }
 
         $response = $this->getJson(route('orders.data'));
 
@@ -287,6 +290,7 @@ class OrderFeatureTest extends TestCase
                 '*' => [
                     'created_at',
                     'customer_name',
+                    'product_type_name',
                     'need_by',
                     'actions',
                 ],

@@ -16,6 +16,7 @@
         <tr>
           <th>Created at</th>
           <th>Customer name</th>
+          <th>Product type</th>
           <th>Need by</th>
           <th>Actions</th>
         </tr>
@@ -33,7 +34,7 @@
     $('#orders-table').DataTable({
       processing: true,
       serverSide: true,
-      order: [2,'asc'],
+      order: [3,'asc'],
       ajax: {
         url: '{{ route("orders.data") }}',
       },
@@ -45,6 +46,9 @@
         {
           data: 'customer_name',
           name: 'customer_name'
+        },{
+          data: 'product_type_name',
+          name: 'product_type_name'
         },
         {
           data: 'need_by',

@@ -16,6 +16,9 @@ class OrdersService
         $formatedDate = Carbon::createFromFormat('Y-m-d H:i:s', $data->created_at)->format('Y-m-d H:i');
         return $formatedDate;
       })
+      ->addColumn('product_type_name', function ($order) {
+        return optional($order->orderItems->first()->product->productType)->name ?? '';
+      })
       ->addColumn('actions', function ($order) {
         return '
           <a href="' . route('orders.show', $order->id) . '" class="a-button a-small-button">ℹ️ Details</a>
@@ -36,6 +39,14 @@ class OrdersService
     return DataTables::of(OrderItem::query()->where('order_id', $orderId))
       ->addColumn('product_name', function ($orderItem) {
         return $orderItem->product ? $orderItem->product->name : '';
+      })
+      ->addColumn('product_type_name', function ($orderItem) {
+        if($orderItem->product) {
+          if($orderItem->product->productType) {
+            return $orderItem->product->productType->name;
+          }
+        }
+        return '';
       })
       ->make(true);
   }
