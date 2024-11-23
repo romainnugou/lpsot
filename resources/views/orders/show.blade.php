@@ -4,6 +4,9 @@
 <h1>ℹ️ Order details</h1>
 
 <section>
+  <a href="{{ route('schedule.index') }}" class="a-button">
+    🔙 Back to schedule
+  </a>
   <a href="{{ route('orders.index') }}" class="a-button">
     🔙 Back to orders
   </a>
@@ -11,6 +14,7 @@
 
 <section>
   <p>
+    <strong>#</strong>: {{ $order->id }}<br />
     <strong>Customer name</strong>: {{ $order->customer_name }}<br />
     <strong>Need by</strong>: {{ $order->need_by }}
   </p>

@@ -141,7 +141,7 @@ header nav a:last-child {
   margin: var(--default-padding) 0;
 }
 
-.content p.warning {
+.content .warning {
   padding: var(--default-padding);
   background-color: rgba(255,165,0,0.1);
   border-radius: 1rem;
@@ -156,6 +156,8 @@ header nav a:last-child {
   border: 1px solid var(--section-border-color);
   border-radius: 1rem;
 }
+
+/* Form */
 
 .form-container {
   margin-bottom: var(--default-padding);
@@ -179,6 +181,8 @@ header nav a:last-child {
   width: 50%;
 }
 
+/* Datatables */
+
 table#order-items {
   width: 100%;
   margin-bottom: var(--default-padding);
@@ -201,6 +205,67 @@ table#order-items td select {
 }
 .dataTables_info {
   opacity: 0.5;
+}
+
+/* Schedule */
+
+.schedule-container .schedule-day {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid var(--transparent-primary);
+}
+.schedule-container .schedule-day .schedule-date {
+  padding: var(--default-padding);
+  font-size: 1.5rem;
+}
+.schedule-container .schedule-day .schedule-events {
+  flex-grow: 1;
+  padding: var(--default-padding);
+}
+.schedule-container .schedule-day .schedule-events .schedule-event {
+  margin-bottom: var(--default-padding);
+  padding: var(--small-padding) var(--default-padding);
+  display: flex;
+  align-items: center;
+  border-left: 5px solid transparent;
+}
+.schedule-container .schedule-day .schedule-events .schedule-event:last-child {
+  margin-bottom: 0;
+}
+.schedule-container .schedule-day .schedule-events .schedule-event .event-times {
+  margin-right: var(--default-padding);
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+.schedule-container .schedule-day .schedule-events .schedule-event .event-times .event-times-from,
+.schedule-container .schedule-day .schedule-events .schedule-event .event-times .event-times-to {
+  width: 100%;
+  margin-bottom: 3px;
+  padding: 2px 5px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 3px;
+}
+.schedule-container .schedule-day .schedule-events .schedule-event .event-times .event-times-from .from,
+.schedule-container .schedule-day .schedule-events .schedule-event .event-times .event-times-to .to {
+  margin-right: var(--small-padding);
+}
+.schedule-container .schedule-day .schedule-events .schedule-event .event-times .event-times-from .from-time,
+.schedule-container .schedule-day .schedule-events .schedule-event .event-times .event-times-to .to-time {
+  font-weight: bold;
+}
+.schedule-container .schedule-day .schedule-events .schedule-event .event-order-info {
+  margin-bottom: var(--small-padding);
+}
+.schedule-container .schedule-day .schedule-events .schedule-event.production {
+  border-color: var(--primary);
+  background-color: var(--transparent-primary);
+}
+.schedule-container .schedule-day .schedule-events .schedule-event.changeover {
+  border-color: rgba(255,255,255,0.1);
+  background-color: rgba(255,255,255,0.05);
 }
 
 /* Footer */

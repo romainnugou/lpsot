@@ -14,6 +14,7 @@
     <table id="orders-table" class="display" style="width:100%">
       <thead>
         <tr>
+          <th>#</th>
           <th>Created at</th>
           <th>Customer name</th>
           <th>Product type</th>
@@ -34,12 +35,16 @@
     $('#orders-table').DataTable({
       processing: true,
       serverSide: true,
-      order: [3,'asc'],
+      order: [4,'asc'],
       ajax: {
         url: '{{ route("orders.data") }}',
       },
       dom: 'rtip',
       columns: [{
+          data: 'id',
+          name: 'id'
+        },
+        {
           data: 'created_at',
           name: 'created_at'
         },
